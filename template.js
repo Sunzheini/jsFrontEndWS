@@ -258,12 +258,106 @@ console.log(increment(4))
 
 // Day 4
 // ---------------- //
-// napravi
+function smallestOfThree(firstNum, secondNum, thirdNum) {
+    return Math.min(firstNum, secondNum, thirdNum)      // ! min
+}
+
+
+//         let temp = String.fromCharCode(i)       // ! fromCharCode
+
+
+let revArray = [...myString].reverse()   // ! string to array.reverse
+
+
+// new Array(3)    // empty * 3
+// new Array(7).fill(7)    // [7, 7, 7, 7, 7, 7, 7]
+// new Array(7).fill(new Array(7).fill(7)) // matrix
 
 
 // Day 5
 // ---------------- //
-// napravi
+
+
+// ------- objects
+let person = {
+    name: 'Daniel',
+    age: 20,
+    height: 181,
+    'my grades': [4, 5, 6],      // '' kogato ima space v imeto
+    info: {seven: 5, eight: 9},
+    sayHello: function () {
+             return `${this.name} ${this.age}`   // this == self
+    },
+    anotherFunc() {    // po kratko deklarirane
+         this.age -= 2  // mojem da promenqme systoqnieto na propertitata
+    },
+}
+
+
+// person['lastName'] = 'Zorov'        // dobavqne na novo property
+//let person3 = {firstName, lastName, age}    // moje i taka vyv funkciq poluchavashta tezi parametri
+
+// console.log(person.lastName)        // dostypvane s .
+// console.log(person['my grades'])     // dostypvane s []
+
+// delete person.lastName              // triene
+
+
+// tuple v js e masiv s 2 elementa
+
+
+// console.log(Object.keys(person5))    // [ 'firstName', 'lastName', 'age', 'sayHello' ]
+// console.log(Object.values(person5))  // [ 'Daniel', 'Zorov', 29, [Function: sayHello] ]
+// console.log(Object.entries(person5)) //  [['firstName', 'Daniel' ], ...]
+//
+// for (const key of Object.keys(person5)) {
+//     console.log(person5[key])
+// }
+//
+// for (const [key, value] of Object.entries(person5)) {
+//     console.log(`${key} ${value}`)
+// }
+
+
+// JSON, obekt v koito kliuchovete trqbva da sa v ""
+
+// let jsonString = JSON.stringify(personJson)      // pravi na json (slaga "", maha funkciite)
+// let personObjAgain = JSON.parse(jsonString)      // pak na object
+
+
+// .hasOwnProperty(name) - proverqva ima li takova property
+
+
+// za da sortirame pyrvo go pravim na masiv s .entries
+
+// const entries = Object.entries(people) // [[],[],[]]
+// let sortedByName = entries.sort(
+//     (personA, personB) => {
+//         let personAName = personA[0]
+//         let personBName = personB[0]
+//         return personAName.localeCompare(personBName)
+//     }
+// )
+
+
+// ------- Classes
+class Student {
+    constructor(name, age, grades) {
+        this.name = name
+        this.age = age
+        this.grades = grades;
+    }
+    sayHello() {
+        console.log(`${this.name} says hi`)
+    }
+}
+
+const studentOne = new Student('Daniel', 19, [1, 2, 3])
+studentOne.sayHello()
+
+
+// day 6 - make
+
 
 
 
