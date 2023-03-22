@@ -569,11 +569,64 @@ function addItemAndDelete() {
 }
 
 
-// day 8 - make
+// day 8
+// <body onload="focused()">
+// kogato se zaredi bodyto, se izvikva funkciq focused!
 
 
+// zaradi judge da polzvame Array.from kydeto moje
 
 
+for (const word of words) {
+         myDiv.innerHTML += '<div><p>'+`${word}`+'</p></div>'    // !
+     }
+
+
+// kogato v edin buton ima dobaven onclick, nqma nujda ot event listener!!!!!!!
+
+
+// function lockedProfile() {
+//     let allButtons = Array.from(document.getElementsByTagName('button'))
+//
+//     for (const button of allButtons) {
+//         button.addEventListener('click', funcHandler)
+//     }
+//
+//     // dostypvaiki buton, dostyp do elementite okolo nego!
+//     function funcHandler(e) {
+//         let currentButton = e.target
+//         let hd = Array.from(currentButton.parentElement.children)[9]
+//
+//         // select the locked input !!!!!!!!!!!!!!!!!!!
+//         let lockRadioInput = Array.from(currentButton.parentElement.children)[2]
+//
+//         // check if locked !!!!!!!!!!!
+//         if (lockRadioInput.checked === false) {
+//             if (currentButton.textContent === 'Show more') {
+//                 hd.style.display = 'block'
+//                 currentButton.textContent = 'Hide it'
+//             } else {
+//                 hd.style.display = 'none'
+//                 currentButton.textContent = 'Show more'
+//             }
+//         }
+//     }
+// }
+
+
+// ako nema nishto kato inline style naprimer v nqkoi div
+// ne pravi proverki s if (d.style === 'none'), a s drugo napr
+// teksta na butona
+// zashtoto trqbva da cykash 2 pyti s butona za da raboti !!!!!!!
+
+
+//             if (td2.textContent.includes(searchValue)) {    // includes!!!!!
+
+
+// ako pishem v textarea, to vliza kato value a ne kato text content!
+
+
+// 9 make
 
 
 
