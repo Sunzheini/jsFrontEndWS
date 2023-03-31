@@ -277,7 +277,6 @@ let revArray = [...myString].reverse()   // ! string to array.reverse
 // Day 5
 // ---------------- //
 
-
 // ------- objects
 let person = {
     name: 'Daniel',
@@ -354,7 +353,6 @@ class Student {
 
 const studentOne = new Student('Daniel', 19, [1, 2, 3])
 studentOne.sayHello()
-
 
 
 // day 6
@@ -700,8 +698,16 @@ for (const word of words) {
 
 // Async / Await> zamaskira rabotata s promisi
 
+
 // 10
 // 1                            // Use as a template
+
+// npm install == pip install
+// package.json == requirements.txt
+
+// 1: nov terminal 'server' --> v papkata na servera --> node server,
+// 2: nov terminal 'js-front-end' --> v papkata na zadachata --> npm install --> npm start
+// 3: nov terminal 'test' --> v papkata na zadachata --> npm test
 function getInfo() {
     // select the elements
     const stopIdInput = document.getElementById('stopId')

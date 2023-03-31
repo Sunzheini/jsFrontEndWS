@@ -13,10 +13,10 @@
 //     const stopIdInput = document.getElementById('stopId')
 //     const stopNameDiv = document.getElementById('stopName')
 //     const busesUl = document.getElementById('buses')
-//
+//      
 //     // base url, also test in postman
 //     const BASE_URL = 'http://localhost:3030/jsonstore/bus/businfo/'
-//
+//      
 //     // get the values
 //     let stopIdInputValue = stopIdInput.value
 //
@@ -64,20 +64,17 @@
 
 
 // 2
-
-// raboti, no pyrvite 2 ot 5 testa ne minavat
-
 // function solve() {
-//     const infoSpan = document.getElementById('info')
+//     const infoSpan = document.querySelector('#info > span')
 //     const departInput = document.getElementById('depart')
 //     const arriveInput = document.getElementById('arrive')
 //
 //     const BASE_URL = 'http://localhost:3030/jsonstore/bus/schedule/'
+//     let nextStopId = 'depot'
 //     let currentStop = ''
-//     let nextStop = 'depot'
 //
 //     function depart() {
-//         let FINAL_URL = `${BASE_URL}${nextStop}`
+//         let FINAL_URL = `${BASE_URL}${nextStopId}`
 //         infoSpan.textContent = ''
 //
 //         // fetch request, returns a promise
@@ -95,7 +92,7 @@
 //                     const {name, next} = stopInfo
 //
 //                     currentStop = name
-//                     nextStop = next
+//                     nextStopId = next
 //                     infoSpan.textContent = `Next stop ${currentStop}`
 //                     departInput.disabled = true
 //                     arriveInput.disabled = false
@@ -103,7 +100,7 @@
 //             )
 //
 //             .catch(
-//                 (err) => {
+//                 () => {
 //                     infoSpan.textContent = 'Error'
 //                     departInput.disabled = true
 //                     arriveInput.disabled = true
@@ -120,10 +117,10 @@
 //     return {
 //         depart,
 //         arrive
-//     };
+//     }
 // }
 //
-// let result = solve();
+// let result = solve()
 
 
 // 6
@@ -199,9 +196,109 @@
 // attachEvents();
 
 
+// 7
+// podobna na 8ma
 
 
+// 8
+// function attachEvents() {
+//     const loadBooks = document.getElementById('loadBooks')
+//     const booksContainer = document.querySelector('table > tbody')
+//     const [titleInput, authorInput] = Array.from(document.querySelectorAll('#form > input'))
+//     const submitBtn = document.querySelector('#form > button')
+//     const formHeader = document.querySelector('#form > h3')
+//
+//     let allBooks = {}
+//     let editBookId = null
+//
+//     const BASE_URL = 'http://localhost:3030/jsonstore/collections/books/'
+//
+//     loadBooks.addEventListener('click', loadAllBooksHandler)
+//     submitBtn.addEventListener('click', submitFormHandler)
+//
+//     async function loadAllBooksHandler() {
+//         booksContainer.innerHTML = ''
+//
+//         const booksRes = await fetch(BASE_URL)
+//         const booksData = await booksRes.json()
+//
+//         allBooks = booksData
+//
+//         for (const bookId in booksData) {
+//             const {author, title} = booksData[bookId]
+//
+//             const tableRow = document.createElement('tr')
+//             const titleColumn = document.createElement('td')
+//             const authorColumn = document.createElement('td')
+//             const buttonColumn = document.createElement('td')
+//             const editBtn = document.createElement('button')
+//             const deleteBtn = document.createElement('button')
+//
+//             titleColumn.textContent = title
+//             authorColumn.textContent = author
+//             editBtn.textContent = 'Edit'
+//             deleteBtn.textContent = 'Delete'
+//             deleteBtn.id = bookId
+//
+//             editBtn.addEventListener('click', () => {       // v sluchaq e udobna arrow func
+//                 editBookId = bookId
+//                 formHeader.textContent = 'Edit Form'
+//                 submitBtn.textContent = 'Save'
+//                 titleInput.value = title
+//                 authorInput.value = author
+//             })
+//
+//             deleteBtn.addEventListener('click', deleteBookHandler)
+//
+//             // Dom manipulations
+//             tableRow.appendChild(titleColumn)
+//             tableRow.appendChild(authorColumn)
+//             buttonColumn.appendChild(editBtn)
+//             buttonColumn.appendChild(deleteBtn)
+//             tableRow.appendChild(buttonColumn)
+//             booksContainer.appendChild(tableRow)
+//         }
+//     }
+//
+//     async function submitFormHandler () {
+//         const title = titleInput.value
+//         const author = authorInput.value
+//         const httpHeaders = {
+//             method: 'POST',
+//             body: JSON.stringify({title, author})
+//         }
+//
+//         let url = BASE_URL
+//
+//         if (formHeader.textContent === 'Edit FORM') {
+//             httpHeaders.method = 'PUT'
+//             url += editBookId
+//         }
+//
+//         const resData = await fetch(url, httpHeaders)
+//         loadAllBooksHandler()
+//
+//         if (formHeader.textContent === 'Edit FORM') {
+//             formHeader.textContent = 'FORM'
+//             submitBtn.textContent = 'Submit'
+//         }
+//
+//         titleInput.value = ''
+//         authorInput.value = ''
+//     }
+//
+//     async function deleteBookHandler() {
+//         const id = this.id
+//         const httpHeaders = {
+//             method: 'DELETE',
+//         }
+//
+//         await fetch(BASE_URL + id, httpHeaders)
+//         loadAllBooksHandler()
+//     }
+// }
+//
+// attachEvents()
 
-
-
-
+// default povedenie na forma e da refreshva stranicata
+// event.preventDefault()          // za da ne refreshva formata!!!!!!!!!!!!!!!!!!!!!!
