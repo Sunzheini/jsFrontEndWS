@@ -123,6 +123,191 @@
 // let result = solve()
 
 
+// 3
+// function getInfo() {
+//     const locationInput = document.getElementById('location')
+//     const submitInputBtn = document.getElementById('submit')
+//     const forecastDivContainer = document.getElementById('forecast')
+//     const currentDivSubContainer = document.getElementById('current')
+//     const upcomingDivSubContainer = document.getElementById('upcoming')
+//
+//     const BASE_URL_GET = 'http://localhost:3030/jsonstore/forecaster/locations'
+//     const BASE_URL_CURRENT = 'http://localhost:3030/jsonstore/forecaster/today/'
+//     const BASE_URL_UPCOMING = 'http://localhost:3030/jsonstore/forecaster/upcoming/'
+//
+//     let locationName = null
+//     let locationCode = null
+//     const weatherSymbols = {
+//         'Sunny': '&#x2600',
+//         'Partly sunny': '&#x26C5',
+//         'Overcast': '&#x2601',
+//         'Rain': '&#x2614',
+//         'Degrees': '&#176',
+//     }
+//
+//     submitInputBtn.addEventListener('click', infoHandler)
+//
+//     function infoHandler() {
+//         let location = locationInput.value
+//
+//         fetch(BASE_URL_GET)
+//             .then((res) => res.json())
+//             .then((arrayOfObjects) => {
+//                 for (const {code, name} of arrayOfObjects) {
+//                     if (name === location) {
+//                         locationCode = code
+//                         locationName = name
+//
+//                         // Current
+//                         fetch(`${BASE_URL_CURRENT}${locationCode}`)
+//                             .then((res) => res.json())
+//                             .then((result) => {
+//                                 let locName = result.name
+//                                 let condition = result.forecast.condition
+//                                 let high = result.forecast.high
+//                                 let low = result.forecast.low
+//
+//                                 forecastDivContainer.style.display = 'block'
+//                                 let newDiv = document.createElement('div')
+//                                 newDiv.classList.add('forecasts')
+//                                 newDiv.innerHTML = `
+//                                     <span class="condition symbol">${weatherSymbols[condition]}</span>
+//                                     <span class="condition">
+//                                         <span class="forecast-data">${locName}</span>
+//                                         <span class="forecast-data">${low}&deg/${high}&deg</span>
+//                                         <span class="forecast-data">${condition}</span>
+//                                     </span>
+//                                 `
+//                                 currentDivSubContainer.appendChild(newDiv)
+//                             })
+//                             .catch(() => {
+//                                 forecastDivContainer.textContent = 'Error'
+//                             })
+//
+//                         // next Upcoming
+//                         fetch(`${BASE_URL_UPCOMING}${locationCode}`)
+//                             .then((res) => res.json())
+//                             .then((result) => {
+//                                 forecastDivContainer.style.display = 'block'
+//                                 let newDiv2 = document.createElement('div')
+//                                 newDiv2.classList.add('forecast-info')
+//
+//                                 let currentArray = result.forecast
+//                                 for (const xObj of currentArray) {
+//                                     newDiv2.innerHTML += `
+//                                         <span class="upcoming">
+//                                             <span class="symbol">${weatherSymbols[xObj.condition]}</span>
+//                                             <span class="forecast-data">${xObj.low}&deg/${xObj.high}&deg</span>
+//                                             <span class="forecast-data">${xObj.condition}</span>
+//                                         </span>
+//                                     `
+//                                 }
+//                                 upcomingDivSubContainer.appendChild(newDiv2)
+//                             })
+//                             .catch(() => {forecastDivContainer.textContent = 'Error'})
+//                     }
+//                 }
+//             })
+//             .catch(() => {forecastDivContainer.textContent = 'Error'})}
+// }
+//
+// getInfo()
+
+
+// 4    50%!!!
+// function attachEvents() {
+//     const loadBtn = document.getElementById('btnLoadPosts')
+//     const postsSelect = document.getElementById('posts')
+//     const viewBtn = document.getElementById('btnViewPost')
+//     const postTitleH1 = document.getElementById('post-title')
+//     const postBodyP = document.getElementById('post-body')
+//     const commentsUl = document.getElementById('post-comments')
+//
+//     const BASE_URL_POSTS = 'http://localhost:3030/jsonstore/blog/posts/'
+//     const BASE_URL_COMMENTS = 'http://localhost:3030/jsonstore/blog/comments/'
+//
+//     loadBtn.addEventListener('click', loadHandler)
+//     viewBtn.addEventListener('click', viewHandler)
+//
+//
+//     function loadHandler() {
+//         fetch(BASE_URL_POSTS)
+//             .then((res) => res.json())
+//             .then((result) => {
+//                 const info = Object.values(result)              // !!!!!! kogato vzimash ot obekt v obekt
+//                 for (const {_body, id, title} of info) {
+//                     let newOption = document.createElement('option')
+//                     newOption.value = id
+//                     newOption.textContent = title
+//                     postsSelect.appendChild(newOption)
+//                 }
+//             })
+//             .catch((err) => {console.log(err)})
+//     }
+//
+//     function viewHandler() {
+//         commentsUl.innerHTML = ''
+//
+//         fetch(BASE_URL_COMMENTS)
+//             .then((res) => res.json())
+//             .then((result) => {
+//                 const currentPostId = postsSelect.options[postsSelect.selectedIndex].value; // vzimane ot option!!!
+//
+//                 fetch(`${BASE_URL_POSTS}${currentPostId}`)
+//                     .then((res2) => res2.json())
+//                     .then((result2) => {
+//                         postTitleH1.textContent = result2.title
+//                         postBodyP.textContent = result2.body
+//
+//                         fetch(BASE_URL_COMMENTS)
+//                             .then((res) => res.json())
+//                             .then((result) => {
+//                                 const info = Object.values(result)
+//                                 for (const {id, postId, text} of info) {
+//                                     if (postId === currentPostId) {
+//                                         let newLi = document.createElement('li')
+//                                         newLi.id = id
+//                                         newLi.textContent = text
+//                                         commentsUl.appendChild(newLi)
+//                                     }
+//                                 }
+//                             })
+//                             .catch((err) => {console.log(err)})
+//                     })
+//                     .catch((err) => {console.log(err)})
+//             })
+//             .catch((err) => {console.log(err)})
+//     }
+// }
+//
+// attachEvents()
+
+
+// 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 6
 // function attachEvents() {
 //     const phonebookUl = document.getElementById('phonebook')
