@@ -763,5 +763,47 @@ function getInfo() {
     // zip all except node_modules and tests, and submit to judge
 
 
+// EP1
 
+// for task 2
+function createElement(type, parentNode, content, classes, id, attributes, useInnerHtml) {
+    const htmlElement = document.createElement(type)
+    if (content && useInnerHtml) {
+        htmlElement.innerHTML = content
+    } else {
+        if (content && type !== 'input') {
+            htmlElement.textContent = content
+        }
+        if (content && type === 'input') {
+            htmlElement.value = content
+        }
+    }
+    if (classes && classes.length > 0) {
+        htmlElement.classList.add(...classes)
+    }
+    if (id) {
+        htmlElement.id = id
+    }
+    // {src: 'link', href: 'http'}
+    if (attributes) {
+        for (const key in attributes) {
+            htmlElement.setAttribute(key, attributes[key])
+            // htmlElement[key] = attributes[key] // option2
+        }
+    }
+    if (parentNode) {
+        parentNode.appendChild(htmlElement)
+    }
+    return htmlElement
+}
+// example usage
+const myImg = createElement(
+    'p',
+    document.getElementById('preview-list'),
+    null,
+    ['story'],
+    null,
+    {'src': 'something'}
+)
 
+// Always use 'Arrayfrom' when using 'querySelectorAll' and children
