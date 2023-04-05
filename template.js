@@ -763,9 +763,35 @@ function getInfo() {
     // zip all except node_modules and tests, and submit to judge
 
 
+// for (const xObj of currentArray) {
+//                                     newDiv2.innerHTML += `
+//                                         <span class="upcoming">
+//                                             <span class="symbol">${weatherSymbols[xObj.condition]}</span>
+//                                             <span class="forecast-data">${xObj.low}&deg/${xObj.high}&deg</span>
+//                                             <span class="forecast-data">${xObj.condition}</span>
+//                                         </span>
+//                                     `
+
+
+//             .then((result) => {
+//                 const info = Object.values(result)              // !!!!!! kogato vzimash ot obekt v obekt
+//                 for (const {_body, id, title} of info) {
+//                     let newOption = document.createElement('option')
+//                     newOption.value = id
+//                     newOption.textContent = title
+//                     postsSelect.appendChild(newOption)
+//                 }
+
+
+//.then((result) => {
+//   const currentPostId = postsSelect.options[postsSelect.selectedIndex].value; // vzimane ot option!!!
+//
+
+
+
 // EP1
 
-// for task 2
+// for task 2 and 3
 function createElement(type, parentNode, content, classes, id, attributes, useInnerHtml) {
     const htmlElement = document.createElement(type)
     if (content && useInnerHtml) {
@@ -807,3 +833,7 @@ const myImg = createElement(
 )
 
 // Always use 'Arrayfrom' when using 'querySelectorAll' and children
+
+// ako input type="submit" refreshva stranicata i trqbva da slojim prevent default!!!
+
+
