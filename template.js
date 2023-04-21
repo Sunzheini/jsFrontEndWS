@@ -836,4 +836,34 @@ const myImg = createElement(
 
 // ako input type="submit" refreshva stranicata i trqbva da slojim prevent default!!!
 
+// appendChild освен че добавя и маха ако същия child преди сме му сложили др parent!!!
+
+//querySelector и останалите освен за document можем да ги прилагаме и за всеки елемент!!!
+
+
+// ------------------------------------- REACT --------------------------------------- //
+
+// create folder and open cmd inside
+// npx create-react-app my-app
+// go to the my-app folder in vsc
+// npm start to start the front-end server
+
+// class => className
+// can use {name === '' ? 'World' : name}
+// when we want to display more than 1 html element we have to put them in a <React.Fragment> (import React from 'react';)
+
+// Components
+
+
+
+
+
+
+
+
+
+
+
+
+
 
